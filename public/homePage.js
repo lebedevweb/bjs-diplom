@@ -42,7 +42,7 @@ moneyManager.addMoneyCallback = (data) => {
         ProfileWidget.showProfile(callback.data);
         moneyManager.setMessage(true, "Пополнение баланса выполненно успешно!");
       } else {
-        moneyManager.setMessage(false, "Ошибка при пополнении баланса!");
+        moneyManager.setMessage(false, callback.error);
       }
     });
 }
@@ -53,7 +53,7 @@ moneyManager.conversionMoneyCallback = (data) => {
       ProfileWidget.showProfile(callback.data);
       moneyManager.setMessage(true, "Конвертация валюты прошло успешно!");
     } else {
-      moneyManager.setMessage(false, "Ошибка при конвертации валюты!");
+      moneyManager.setMessage(false, callback.error);
     }
   });
 }
@@ -64,7 +64,7 @@ moneyManager.sendMoneyCallback = (data) => {
       ProfileWidget.showProfile(callback.data);
       moneyManager.setMessage(true, "Конвертация валюты прошло успешно!");
     } else {
-      moneyManager.setMessage(false, "Ошибка при конвертации валюты!");
+      moneyManager.setMessage(false, callback.error);
     }
   });
 }
@@ -89,7 +89,7 @@ favoritesWidget.addUserCallback = (data) => {
       moneyManager.updateUsersList(callback.data);
       favoritesWidget.setMessage(true, "Пользователь добавлен в список избранных!");
     } else {
-      favoritesWidget.setMessage(false, "Ошибка при добавлении в избранное!");
+      favoritesWidget.setMessage(false, callback.error);
     }
   });
 }
@@ -102,7 +102,7 @@ favoritesWidget.removeUserCallback = (data) => {
       moneyManager.updateUsersList(callback.data);
       favoritesWidget.setMessage(true, "Пользователь удален из списка избранных!");
     } else {
-      favoritesWidget.setMessage(false, "Ошибка при удалении из избранного!");
+      favoritesWidget.setMessage(false, callback.error);
     }
   });
 }
